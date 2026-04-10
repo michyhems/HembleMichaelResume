@@ -1,0 +1,44 @@
+[
+    {
+        "title": "Personal Profile",
+        "source": "#",
+        "gitRepo": "https://github.com/michyhems/Resume/tree/master",
+        "description": "A custom profile displaying my skill in designing an attractive, responsive and user friendly UI coupled with a simple REST API to retrieve and display the data for the projects listed below. Both the front and backend were deployed onto render.com. To see the source code of the frontend please click the link below. To see the code for the backend click the link below and navigate to the ‘backend’ branch.",
+        "imageSource": "https://www.dropbox.com/scl/fi/cc5hee91lqvd93nqnscy1/Screenshot-2026-03-26-101308.png?rlkey=exjl13rktz8repjp3rbwar9j7&st=nqoecsod&raw=1"
+    },
+    {
+        "title": "Sorting Visualiser",
+        "source": "https://michyhems.github.io/SortingVisualiser/",
+        "gitRepo": "https://github.com/michyhems/SortingVisualiser/tree/master",
+        "description": "This is a website that demonstrates the processes of different sorting algorithms, designed as an aid in understanding their methods. It is a React application using JavaScript to animate the sorting and is deployed using Github Pages.",
+        "imageSource": "https://www.dropbox.com/scl/fi/lxwvspq2aowv9w9671ysv/sortingalg.png?rlkey=bj4zfbluao2mwbgucxmt84cha&st=5f8tnauc&raw=1"
+    },
+    {
+        "title": "Sudoku",
+        "source": "https://michyhems.github.io/Sudoku/",
+        "gitRepo": "https://github.com/michyhems/Sudoku/tree/master",
+        "description": "Sudoku was a game that I developed an interest in recently and its development was an excuse for me to experiment with a novel idea I had for an interactive background. I used JavaScript to generate a random solvable sudoku problem that is then given life through React and deployed through Github Pages.",
+        "imageSource": "https://www.dropbox.com/scl/fi/y3l037ssd5zhnsnutbw4h/sadokuIcon.png?rlkey=dgtqhl82ehojd0elw7cgr3eoi&st=uui4do9b&raw=1"
+    },
+    {
+        "title": "3D Tooth Surgery",
+        "source": "https://www.youtube.com/watch?v=fgLgKa1RRfw",
+        "gitRepo": "",
+        "description": "While the skillset that this project showcases is not necessarily universal, it does represent my ability to learn new technologies and adapt to the given situation. As I said in the Experience section, Neither I nor any members of my team had any experience in animation or 3D modelling before undertaking this project.",
+        "imageSource": "https://www.dropbox.com/scl/fi/dt4uox8hs1zcl2icqjq3n/tooth.png?rlkey=w1coz641jpdcq3i6647ijni3l&st=vqtqbf9e&raw=1"
+    },
+    {
+        "title": "Essay on Prototype-Oriented Programming",
+        "source": "https://drive.google.com/file/d/1rs7A6NWjWMnoefbN3Kkhq25zPEHB2mQs/view?usp=sharing",
+        "gitRepo": "",
+        "description": "In my final year of University I was tasked with writing a ten page essay on a topic of my choice. The only restriction being that it could not be a 'regurgitation of the internet'. It had to be our own words and display our own understanding of the research we conducted. This essay shows my ability to communicate complex ideas clearly and effectively in the written form.",
+        "imageSource": "https://www.dropbox.com/scl/fi/lqh0cjptgkwmt818jdyc8/research.png?rlkey=074cay2wgs3nzetmlpdy2295e&st=nh6zv1a7&raw=1"
+    },
+    {
+        "title": "Bash Script",
+        "source": "https://github.com/michyhems/BashConsoleApp",
+        "gitRepo": "https://github.com/michyhems/BashConsoleApp",
+        "description": "As can be seen in the preceding projects, I make a lot of React projects and some of them require backends. I created this bash application to streamline that entire process. This application creates a skeleton code for the backend and frontend, with all its necessary packages, fully connected through axios and cors in a neatly constructed directory and uploaded onto git.",
+        "imageSource": "https://www.dropbox.com/scl/fi/0te6anmlz40g8zs36sfrz/markus-spiske-iar-afB0QQw-unsplash.jpg?rlkey=1aecd0mtm2w91g7l8oki4i4je&st=gjortb1y&raw=1"
+    }
+]

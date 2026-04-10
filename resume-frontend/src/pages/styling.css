@@ -1,0 +1,566 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+    --backgroundColour: #181818;
+    --cardColour: #202020;
+}
+
+body {
+    font-family: Poppins;
+    background-color: rgb(24, 24, 24);
+    background-image: radial-gradient(
+        circle at top left,
+        rgba(0, 174, 255, 0.3),
+        rgb(26, 26, 26) 20%
+    );
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.option {
+    display: none;
+}
+
+.content-box {
+    height: 100vh;
+    width: 75vw;
+    display: grid;
+    grid-template-columns: 23% 72%;
+    grid-template-rows: 100vh;
+    justify-content: space-evenly;
+    align-items: center;
+    position: relative;
+}
+
+.education-sidebar {
+    height: 95%;
+    z-index: 1;
+}
+
+.main-content {
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: visible;
+    display: flex;
+    flex-direction: column;
+    flex: auto;
+    gap: 1em;
+    scrollbar-width: none;
+    z-index: 1;
+}
+
+.banner-container {
+    font-family: Cascadia Code;
+    margin-top: 2%;
+    height: 40vh;
+    width: 98%;
+    margin-left: 0.25%;
+    background-color: #161616;
+    background-image: radial-gradient(
+        farthest-corner at 75% 50%,
+        #161616 85%,
+        rgba(0, 174, 255, 0.3)
+    );
+    border: none;
+    position: relative;
+    border-radius: 15px;
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-left: 1%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+.banner-container::after,
+.banner-container::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+    padding: 0.3%;
+    z-index: -1;
+}
+/* rgba(0, 174, 255, 0.3) #161616*/
+.banner-container::after {
+    background-image: conic-gradient(
+        from 0deg,
+        #161616 25%,
+        rgba(0, 174, 255, 0.3),
+        #161616 35%,
+        #161616 73%,
+        rgba(0, 174, 255, 0.3),
+        #161616 85%
+    );
+}
+
+.banner-container::before {
+    background-image: conic-gradient(
+        from 0deg,
+        transparent 25%,
+        rgba(0, 174, 255, 0.3),
+        transparent 35%,
+        transparent 73%,
+        rgba(0, 174, 255, 0.3),
+        transparent 85%
+    );
+    border-radius: 30px;
+    filter: blur(10px);
+}
+
+.console-path {
+    align-self: flex-start;
+}
+.console-path,
+.hello-world,
+.about-me {
+    color: transparent;
+}
+
+.typed-text {
+    display: inline-block;
+    vertical-align: middle;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: fit-content;
+    width: 0;
+    will-change: width;
+}
+
+.banner-container div:nth-child(1) {
+    color: white;
+}
+
+.banner-container div:nth-child(1) .typed-text {
+    width: 27ch;
+    border-right: 1ch solid white;
+    animation:
+        type 3.5s steps(19, end) forwards,
+        blink 0.5s infinite,
+        disappear 0.5s step-start 2.8s forwards;
+}
+
+.banner-container h1 {
+    animation: appear 1s step-start 2.8s forwards;
+}
+
+.banner-container div:nth-child(3) {
+    animation: appear 1s step-start 3.2s forwards;
+}
+
+.banner-container div:nth-child(3) .typed-text {
+    width: 21ch;
+    border-right: 1ch solid transparent;
+    animation:
+        type 3s steps(14, end) 3.2s forwards,
+        blink 0.5s 3.2s infinite,
+        disappear 0.5s step-start 6.2s forwards;
+}
+.banner-container div:nth-child(4) {
+    animation: appear 1s step-start 5.5s forwards;
+}
+
+.banner-container div:nth-child(5) {
+    animation: appear 1s step-start 6.8s forwards;
+}
+
+.banner-container div:nth-child(5) .typed-text {
+    width: 26ch;
+    border-right: 1ch solid transparent;
+    animation:
+        type-blue 3.5s steps(26, end) 6.8s forwards,
+        blink 0.5s 6.8s infinite;
+}
+
+@keyframes disappear {
+    to {
+        border-style: none;
+    }
+}
+
+@keyframes appear {
+    to {
+        color: white;
+    }
+}
+
+@keyframes type {
+    from {
+        width: 0;
+    }
+}
+
+@keyframes type-blue {
+    from {
+        color: rgb(0, 174, 255);
+        border-right-color: white;
+        width: 0;
+    }
+    to {
+        color: rgb(0, 174, 255);
+    }
+}
+
+@keyframes blink {
+    from,
+    to {
+        border-right-color: transparent;
+    }
+    50% {
+        border-right-color: white;
+    }
+}
+
+.sidebar-container {
+    height: 100%;
+    width: 100%;
+    background-color: #111111;
+    background-image: radial-gradient(
+        circle at top left,
+        rgba(0, 174, 255, 0.3),
+        #161616 25%,
+        #161616 90%,
+        rgba(0, 174, 255, 0.3) 99%
+    );
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    position: relative;
+}
+.sidebar-container::after,
+.sidebar-container::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    padding: 1%;
+    z-index: -1;
+}
+.sidebar-container::after {
+    background-image: conic-gradient(
+        from 180deg,
+        #161616 40%,
+        rgba(0, 174, 255, 0.3) 45%,
+        #161616 53%
+    );
+}
+.sidebar-container::before {
+    background-image: conic-gradient(
+        from 180deg,
+        transparent 40%,
+        rgba(0, 174, 255, 0.5) 45%,
+        transparent 50%
+    );
+    filter: blur(10px);
+}
+
+.profile-picture {
+    height: 20%;
+    justify-self: center;
+    margin-top: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.profile-picture h3 {
+    margin: 0;
+}
+
+.profile-image {
+    height: 100%;
+    aspect-ratio: 1/1;
+    background-image: url("./../assets/WhatsApp Image 2026-03-26 at 10.23.12 AM.jpeg");
+    background-position: center top;
+    background-size: cover;
+    border-radius: 50%;
+}
+
+.banner-container::before {
+    padding: 0.5%;
+}
+/*Marque animation*/
+
+.wrapper {
+    width: 90%;
+    height: fit-content;
+}
+
+.skillElement {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.wrapper[data-animated="true"] {
+    overflow: hidden;
+    mask: linear-gradient(
+        90deg,
+        transparent,
+        white 15%,
+        white 85%,
+        transparent
+    );
+}
+.wrapper[data-animated="true"] .skillElement {
+    width: fit-content;
+    flex-wrap: nowrap;
+    animation: scroller 60s var(--_animation-direction, forwards) linear
+        infinite;
+}
+
+.wrapper[data-direction="right"] {
+    --_animation-direction: reverse;
+}
+
+@keyframes scroller {
+    to {
+        transform: translate(calc(-50% - 0.5rem));
+    }
+}
+
+.skill {
+    background-color: #1e293b;
+    color: #e0e0e0;
+    white-space: nowrap;
+    height: fit-content;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.skills {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+}
+
+.skills h3 {
+    margin-bottom: 0;
+}
+
+.education {
+    height: 21%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25em;
+}
+
+.education p {
+    margin: 0;
+    font-size: 12px;
+    align-self: flex-start;
+    margin-left: 7%;
+}
+
+.education h3 {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.institution {
+    height: 50%;
+    background-color: red;
+    border-radius: 10px;
+    width: 90%;
+}
+
+#university {
+    background-image: url("./../assets/qut-8-logo.png");
+    background-color: white;
+    background-size: cover;
+    background-position: center;
+}
+#high-school {
+    background-image: url("./../assets/image.png");
+    background-color: white;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.contact-me {
+    grid-row: 8 / span 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-me h3 {
+    margin: 0;
+}
+
+.contact-me ul {
+    list-style: none;
+    align-self: flex-start;
+}
+
+.contact-me ul li {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    margin-bottom: 0.5em;
+}
+
+.section-title {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 0;
+    margin-top: 0;
+    border-bottom: solid 1px rgba(158, 158, 158, 0.705);
+}
+
+.projects {
+    width: 100%;
+    height: fit-content;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1em;
+}
+.project-card {
+    background-color: #16161681;
+    height: 350px;
+    border-radius: 15px;
+    position: relative;
+    border: solid 1px rgba(46, 46, 46, 0.918);
+}
+
+.project-card:hover {
+    cursor: pointer;
+}
+
+.project-card-image {
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+.project-card-image img {
+    width: 90%;
+    height: 90%;
+    object-fit: cover;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.project-card-glass {
+    position: absolute;
+    top: 80%;
+    height: 90%;
+    width: 87%;
+    bottom: 5%;
+    z-index: 3;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    padding-left: 10px;
+    font-size: 150%;
+    background-color: #16161681;
+}
+
+.internships-container {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1em;
+}
+
+.internship-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border: solid 1px rgba(46, 46, 46, 0.918);
+    border-radius: 10px;
+    background-color: #161616;
+}
+.internship-card ul {
+    padding-right: 5%;
+}
+
+.internship-title {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.internship-blurb {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.blog-container {
+    width: 50%;
+    justify-self: center;
+    padding-bottom: 5%;
+    padding-top: 2.5%;
+}
+
+.blog-title-card {
+    height: 50vh;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.blog-title-card-details {
+    background-color: #161616;
+    padding: 2.5%;
+}
+
+code {
+    display: inline-block;
+    background-color: #0a0a1d;
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+}
+
+@media screen and (max-width: 1630px) {
+    .content-box {
+        width: 100vw;
+        grid-template-columns: 25% 74%;
+    }
+}
+@media screen and (max-width: 1160px) {
+    .content-box {
+        grid-template-columns: 97%;
+    }
+    .banner-container {
+        height: auto;
+    }
+    .education-sidebar {
+        display: none;
+    }
+    .option {
+        display: block;
+    }
+}

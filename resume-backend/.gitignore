@@ -1,0 +1,6 @@
+*.env
+backend.env
+mongo.env
+node_modules
+populate.rest
+.dockerignore

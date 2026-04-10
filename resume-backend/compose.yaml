@@ -1,0 +1,20 @@
+services:
+    node-application:
+        build: .
+        image: resume:v1
+        env_file:
+            - ./.env
+        ports:
+            - "${SERVER_HOST_PORT}:${SERVER_CONTAINER_PORT}"
+#         depends_on:
+#             - mongo
+#     mongo:
+#         image: mongo
+#         restart: always
+#         volumes:
+#             - mongo-data:/data/db
+#         env_file:
+#             - ./mongo.env
+# volumes:
+#     mongo-data:
+#         driver: local

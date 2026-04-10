@@ -1,0 +1,41 @@
+###development testing
+
+@authToken = 9e77f67ff9843c73275d526409d46c3fb03058244b849a8bce3a38e66afc321d
+
+###
+GET http://localhost:3500/api
+Authorization: Bearer {{authToken}}
+
+###
+GET http://localhost:3500/api/titles
+
+###
+GET http://localhost:3500/api/blog/69cf69a75a3c081ed00e926b
+
+
+###
+POST http://localhost:3500/api
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+    "title": "Personal Profile",
+    "thumbnail":"https://www.dropbox.com/scl/fi/cc5hee91lqvd93nqnscy1/Screenshot-2026-03-26-101308.png?rlkey=exjl13rktz8repjp3rbwar9j7&st=nqoecsod&raw=1",
+    "description": "A custom profile displaying my skill in designing an attractive, responsive and user friendly UI coupled with a simple REST API to retrieve and display the data for the projects listed below. Both the front and backend were deployed onto render.com. To see the source code of the frontend please click the link below. To see the code for the backend click the link below and navigate to the ‘backend’ branch.",
+    "repo":"Resume"    
+}
+
+###
+PATCH http://localhost:3500/api/69cf92f27d5c183a639a17d3
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+    "title": null,
+    "thumbnail": "https://www.dropbox.com/scl/fi/0te6anmlz40g8zs36sfrz/markus-spiske-iar-afB0QQw-unsplash.jpg?rlkey=1aecd0mtm2w91g7l8oki4i4je&st=gjortb1y&raw=1",
+    "description": null
+}
+
+###
+DELETE http://localhost:3500/api/69d6d3da1128c976b0ebf04e
+Authorization: Bearer {{authToken}}

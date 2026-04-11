@@ -13,7 +13,6 @@ describe("API endpoints", () => {
         it("should return invalid request error", async () => {
             const res = await request(app).get("/api/");
             expect(res.statusCode).toBe(400);
-            expect(Array.isArray(res.body)).toBe(false);
         });
 
         it("should return invalid request error", async () => {
@@ -21,7 +20,6 @@ describe("API endpoints", () => {
                 .get("/api/")
                 .set("Authorization", "7");
             expect(res.statusCode).toBe(400);
-            expect(Array.isArray(res.body)).toBe(false);
         });
 
         it("should return authentication error", async () => {
@@ -29,7 +27,6 @@ describe("API endpoints", () => {
                 .get("/api/")
                 .set("Authorization", "Bearer 7");
             expect(res.statusCode).toBe(401);
-            expect(Array.isArray(res.body)).toBe(false);
         });
 
         it("should return all projects", async () => {

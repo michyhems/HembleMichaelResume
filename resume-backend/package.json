@@ -12,7 +12,8 @@
     },
     "scripts": {
         "start": "node server",
-        "dev": "nodemon server"
+        "dev": "nodemon server",
+        "test": "jest"
     },
     "dependencies": {
         "cors": "^2.8.6",

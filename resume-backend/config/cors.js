@@ -1,4 +1,8 @@
-const allowedOrigins = ['http://localhost:3000'];
+const allowedOrigins = [
+    "https://hemblemichaelresume-demo.onrender.com/",
+    "https://resume-oi5f.onrender.com/",
+    "https://hemblemichaelresume.onrender.com",
+];
 const corsOptions = {
     origin: (origin, callback) => {
         if (allowedOrigins.indexOf(origin) !== -1 || !origin) {

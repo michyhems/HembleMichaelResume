@@ -14,7 +14,7 @@ This project demonstrates skills in user-oriented design, backend development, c
 
 Architecture diagram:
 
-![Architecture Diagram](https://www.dropbox.com/scl/fi/zx2y54spdc5pdzuf4h5w6/Screenshot-2026-04-11-132941.png?rlkey=z51kt89qvymm68ijl96ncdc79&st=6xfndcbx&raw=1)
+![Architecture Diagram](https://www.dropbox.com/scl/fi/jhpo3sr4i7sy4skz1wr5x/Screenshot-2026-04-11-143434.png?rlkey=8mhzuipt7korzgunwab5gy2kc&st=sp1fmmod&raw=1)
 
 ## Implementation
 

@@ -106,6 +106,10 @@ Protected Endpoints:
 | PATCH | /:id | Updates a particular entry in the database. |
 | DELETE | /:id | Deletes a particular entry of the database. |
 
+### Syncing README.md
+
+A CI/CD pipeline that connects each project repository and the backend. A GitHub Actions workflow was initialised in each project, that upon commits to the README.md file, would send a /sync request to the backend and update the content in the database.
+
 ### Routing
 
 A feature of the frontend which switches between the main view (details about me and a list of projects) and a blog post about the projects (pulled from the README.md files of the project repos). The routing is implemented through react-router-dom.
@@ -216,7 +220,7 @@ root/
 |  |  └──sync-readme.yml            # Initialises GitHub Actions to send /sync request to backend upon README.md
 ```
 
-Set up the backend
+### Set up the backend
 
 Install packages
 
@@ -253,7 +257,7 @@ If containerising:
 docker compose up
 ```
 
-Set up the frontend
+### Set up the frontend
 
 Install packages
 

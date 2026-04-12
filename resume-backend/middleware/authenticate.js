@@ -9,7 +9,7 @@ function authenticate(req, res, next) {
             return res.status(400).json({ message: "Invalid request." });
         }
         if (token[1] !== process.env.API_SECRET) {
-            return res.status(401).json({ message: "Unauthorised entry." });
+            return res.status(403).json({ message: "Unauthorised entry." });
         }
     } catch (err) {
         return res.status(500).json({ message: err });

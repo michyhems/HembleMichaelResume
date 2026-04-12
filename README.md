@@ -1,20 +1,33 @@
 # Full Stack Resume Web Application
 
-This web application was a way for me to display my personal information and projects in a single, sleek build while displaying my skills with backend development and deployment.
-<br>
-**Note:** The backend was created using the Bash Console App project found [here](https://github.com/michyhems/BashConsoleApp).
-<br>
-[Live demo](https://hemblemichaelresume-demo.onrender.com/)
-<br>
+The following is the documentation for my full stack resume website.
 
-##Overview
-This project demonstrates skills in user-oriented design, backend development, containerisation, CI/CD pipelines via GitHub Actions and cloud deployment.
+## Motivation
+
+I needed a way to present my projects and their documentation as well as present my ability to design, construct and manage backend operations. I found that my constrained budget was a limiting factor and yet that forced me to learn much about cloud engineering and DevOps to find the most expedient and cost effective solution.
+
+## Overview
+
+This is a full stack web application composed of a frontend, a backend server, a database and a GitHub Actions workflow. Through this I will have demonstrated skills in user-oriented design, backend development, containerisation, CI/CD pipelines via GitHub Actions and cloud deployment.
+
+[Live demo](https://hemblemichaelresume-demo.onrender.com/)
+
+**Note:** The backend server was created using my own Bash Console App project found [here](https://github.com/michyhems/BashConsoleApp).
 
 ### Architecture
 
 Architecture diagram:
 
 ![Architecture Diagram](https://www.dropbox.com/scl/fi/jhpo3sr4i7sy4skz1wr5x/Screenshot-2026-04-11-143434.png?rlkey=8mhzuipt7korzgunwab5gy2kc&st=sp1fmmod&raw=1)
+
+This diagram details a client-to-server design pattern with two distinct starting points:
+
+- As the frontend loads it sends a request to the server to provide information concerning projects.
+- The server passes the request on to the database and returns the output.
+
+This is quite standard for most resume sites. However, because the content of the blog posts (including this one) comes from the README.md file stored in the associated project's repository:
+
+- When a developer commits changes to the README.md of any project, it triggers GitHub Actions to send a request to the backend which will then query the database and update the content.
 
 ## Implementation
 
@@ -62,7 +75,7 @@ Architecture diagram:
 The frontend is accessible to anyone with the link. However, creating, updating and deleting entries from the database requires a unique authentication token:
 
 ```javascript
-//root/resume-backend/middleware/authenticate.js
+`root/resume-backend/middleware/authenticate.js`;
 
 function authenticate(req, res, next) {
     const authHeader = req.headers.authorization;
@@ -75,7 +88,7 @@ function authenticate(req, res, next) {
             return res.status(400).json({ message: "Invalid request." });
         }
         if (token[1] !== process.env.API_SECRET) {
-            return res.status(401).json({ message: "Unauthorised entry." });
+            return res.status(403).json({ message: "Unauthorised entry." });
         }
     } catch (err) {
         return res.status(500).json({ message: err });
@@ -117,7 +130,7 @@ A feature of the frontend which switches between the main view (details about me
 The user selects a project from the main view and the id of the project is passed as a parameter onto the blog view. It is then used in a GET request as seen in the table above (/blog/:id):
 
 ```javascript
-//root/resume-frontend/src/pages/page-components/blog.jsx
+`root/resume-frontend/src/pages/page-components/blog.jsx`;
 
 const getBlog = async () => {
     try {
@@ -141,7 +154,7 @@ During development the API endpoints were tested using the REST.Client VSCode ex
 root/
 ├──resume-backend/
 |  ├──tests/
-|  |  └──api.test.js
+|  |  ├──api.test.js
 |  |  └──test.rest
 ```
 
@@ -183,36 +196,36 @@ The repository will have this structure:
 root/
 ├──resume-frontend/
 |  ├──src/
-|  |  └──App.jsx                    # Contains routes for home view and blog view
+|  |  ├──App.jsx                    # Contains routes for home view and blog view
 |  |  ├──api/
 |  |  |  └──axios.js                # Contains axios connection to backend
 |  |  ├──pages/
-|  |  |  └──home.jsx                # Layout of the home view by collating the components from page-components/
-|  |  |  └──styling.css             # Styling and responsive layout for entire application
+|  |  |  ├──home.jsx                # Layout of the home view by collating the components from page-components/
+|  |  |  ├──styling.css             # Styling and responsive layout for entire application
 |  |  |  ├──page-components/
-|  |  |  |  └──banner.jsx           # Banner component (The console where the typing animation takes place)
-|  |  |  |  └──blog.jsx             # Blog component which displays the README.md of each project stored in the DB
-|  |  |  |  └──internships.jsx      # Displays the information about the internships as cards at the bottom of the page
-|  |  |  |  └──projects.jsx         # Queries the backend through axios and displays the titles and thumbnails of projects
+|  |  |  |  ├──banner.jsx           # Banner component (The console where the typing animation takes place)
+|  |  |  |  ├──blog.jsx             # Blog component which displays the README.md of each project stored in the DB
+|  |  |  |  ├──internships.jsx      # Displays the information about the internships as cards at the bottom of the page
+|  |  |  |  ├──projects.jsx         # Queries the backend through axios and displays the titles and thumbnails of projects
 |  |  |  |  └──sidebar.jsx          # Sidebar component, displays the contact and education details in a fixed sidebar
 |
 ├──resume-backend/
 |  ├──config/
 |  |  └──cors.js                    # Contains the CORS whitelist
 |  ├──middleware/
-|  |  └──authenticate.js            # Endpoint protection middleware (requires secret key to access)
-|  |  └──fetchRepo.js               # Fetches the README.md content from each project repository
+|  |  ├──authenticate.js            # Endpoint protection middleware (requires secret key to access)
+|  |  ├──fetchRepo.js               # Fetches the README.md content from each project repository
 |  |  └──getEntry.js                # Fetches a project from the database by id
 |  ├──models/
 |  |  └──project.js                 # Mongoose schema
 |  ├──routes/
 |  |  └──api.js                     # API endpoints
 |  ├──tests/
-|  |  └──api.test.js                # Tests API endpoints through jest and supertest
+|  |  ├──api.test.js                # Tests API endpoints through jest and supertest
 |  |  └──test.rest                  # Tests API endpoints through VSCode extension (REST.Client)
-|  └──.gitignore
-|  └──compose.yaml                  # Docker compose file which manages the node.js application image
-|  └──dockerfile                    # Generates the node.js application image
+|  ├──.gitignore
+|  ├──compose.yaml                  # Docker compose file which manages the node.js application image
+|  ├──dockerfile                    # Generates the node.js application image
 |  └──server.js                     # Runs node.js application by receiving requests and connecting to database
 |
 ├──.github/

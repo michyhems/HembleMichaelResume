@@ -15,9 +15,6 @@ const Blog = () => {
         const getBlog = async () => {
             try {
                 const response = await axios.get(`/blog/${repo}`, {
-                    headers: {
-                        Authorization: `Bearer ${import.meta.env.VITE_API_SECRET}`,
-                    },
                     signal: controller.signal,
                 });
                 setThumbnail(response.data.thumbnail);

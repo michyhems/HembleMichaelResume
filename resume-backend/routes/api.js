@@ -3,6 +3,7 @@ const router = express.Router();
 const Model = require("../models/project");
 const fetchRepo = require("../middleware/fetchRepo");
 const getEntry = require("../middleware/getEntry");
+const authenticate = require("../middleware/authenticate");
 
 //Get all
 router.get("/", async (req, res) => {
@@ -33,7 +34,7 @@ router.get("/blog/:id", getEntry, async (req, res) => {
 });
 
 //Create
-router.post("/", fetchRepo, async (req, res) => {
+router.post("/", authenticate, fetchRepo, async (req, res) => {
     const body = req.body;
     const entry = new Model({
         title: body.title,
@@ -51,7 +52,7 @@ router.post("/", fetchRepo, async (req, res) => {
 });
 
 //Update elements that are not Readme
-router.patch("/:id", getEntry, async (req, res) => {
+router.patch("/:id", authenticate, getEntry, async (req, res) => {
     const body = req.body;
     if (body.title !== null) {
         req.entry.title = body.title;
@@ -71,7 +72,7 @@ router.patch("/:id", getEntry, async (req, res) => {
 });
 
 //Sync Readme with github
-router.post("/sync", fetchRepo, async (req, res) => {
+router.post("/sync", authenticate, fetchRepo, async (req, res) => {
     const html = req.html;
     const repo = req.body.repo;
     try {
@@ -92,7 +93,7 @@ router.post("/sync", fetchRepo, async (req, res) => {
 });
 
 //Delete
-router.delete("/:id", getEntry, async (req, res) => {
+router.delete("/:id", authenticate, getEntry, async (req, res) => {
     try {
         await req.entry.deleteOne();
         res.json({ message: "deleted entry" });

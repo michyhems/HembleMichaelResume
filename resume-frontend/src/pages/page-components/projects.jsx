@@ -11,9 +11,6 @@ const Projects = () => {
         const getProjects = async () => {
             try {
                 const response = await axios.get(`/titles`, {
-                    headers: {
-                        Authorization: `Bearer ${import.meta.env.VITE_API_SECRET}`,
-                    },
                     signal: controller.signal,
                 });
                 setProjectList(response.data);

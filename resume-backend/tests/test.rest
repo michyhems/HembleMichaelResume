@@ -3,7 +3,7 @@
 @authToken = 9e77f67ff9843c73275d526409d46c3fb03058244b849a8bce3a38e66afc321d
 
 ###
-GET http://localhost:3500/api
+GET https://hemblemichaelresume.fly.dev/api
 Authorization: Bearer {{authToken}}
 
 ###

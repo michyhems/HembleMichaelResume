@@ -4,7 +4,6 @@ const app = express();
 const cors = require("cors");
 const corsOptions = require("./config/cors");
 const bodyParser = require("body-parser");
-const authenticate = require("./middleware/authenticate");
 const db = require("./config/DBconnection");
 app.use(cors(corsOptions));
 
@@ -13,6 +12,5 @@ db.once("open", () => console.log("Connected to Database"));
 
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(authenticate);
 app.use("/api", require("./routes/api"));
 module.exports = app;

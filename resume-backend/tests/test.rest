@@ -1,10 +1,9 @@
 ###development testing
 
-@authToken = 9e77f67ff9843c73275d526409d46c3fb03058244b849a8bce3a38e66afc321d
+@authToken = ${{$dotenv API_SECRET_KEY}}
 
 ###
-GET https://hemblemichaelresume.fly.dev/api
-Authorization: Bearer {{authToken}}
+GET http://localhost:3500/api/
 
 ###
 GET http://localhost:3500/api/titles
@@ -22,7 +21,7 @@ Content-Type: application/json
     "title": "Personal Profile",
     "thumbnail":"https://www.dropbox.com/scl/fi/cc5hee91lqvd93nqnscy1/Screenshot-2026-03-26-101308.png?rlkey=exjl13rktz8repjp3rbwar9j7&st=nqoecsod&raw=1",
     "description": "A custom profile displaying my skill in designing an attractive, responsive and user friendly UI coupled with a simple REST API to retrieve and display the data for the projects listed below. Both the front and backend were deployed onto render.com. To see the source code of the frontend please click the link below. To see the code for the backend click the link below and navigate to the ‘backend’ branch.",
-    "repo":"Resume"    
+    "repo":"HembleMichaelResume"    
 }
 
 ###

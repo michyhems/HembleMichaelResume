@@ -33,7 +33,7 @@ Architecture diagram:
 - MongoDB storage
 - 24/7 uptime
 - Low latency
-- Automatic integration if/when README.md is amended
+- Automatic integration if/when README.md in any project is amended
 
 ### Tech Stack
 
@@ -59,27 +59,7 @@ Architecture diagram:
 
 #### Access
 
-The frontend is accessible to anyone with the link, however the backend requires a private key to be in the header of any request:
-
-```javascript
-//root/resume-frontend/src/pages/page-components/projects.jsx
-
-const getProjects = async () => {
-    try {
-        const response = await axios.get(`/titles`, {
-            headers: {
-                Authorization: `Bearer ${import.meta.env.VITE_API_SECRET}`,
-            },
-            signal: controller.signal,
-        });
-        setProjectList(response.data);
-    } catch (err) {
-        console.error(err);
-    }
-};
-```
-
-That private key is then checked by middleware in the backend:
+The frontend is accessible to anyone with the link. However, creating, updating and deleting entries from the database requires a unique authentication token:
 
 ```javascript
 //root/resume-backend/middleware/authenticate.js
@@ -107,17 +87,24 @@ function authenticate(req, res, next) {
 module.exports = authenticate;
 ```
 
+**Note**: The small scale and low sensitivity of the data prompted me to go with a simpler authentication method. However, in true production contexts JWT's and role-based authentication is to be preferred.
+
 ### API Endpoints
 
-| Method | Endpoint  | Description                                                                                                             |
+Public Endpoints:
+| Method | Endpoint | Description |
 | :----- | :-------- | :---------------------------------------------------------------------------------------------------------------------- |
-| GET    | /         | Retrieves all entries in the database.                                                                                  |
-| GET    | /titles   | Retrieves the id, titles and thumbnails of all entries in the database (used in the main view of the frontend).         |
-| GET    | /blog/:id | Retrieves the markdown content of a project, selected by the user, stored in the database.                              |
-| POST   | /         | Creates an entry in the database.                                                                                       |
-| POST   | /sync     | Updates the README.md content stored in the database (triggers GitHub Actions upon updating the README.md in the repo). |
-| PATCH  | /:id      | Updates a particular entry in the database.                                                                             |
-| DELETE | /:id      | Deletes a particular entry of the database.                                                                             |
+| GET | / | Retrieves all entries in the database. |
+| GET | /titles | Retrieves the id, titles and thumbnails of all entries in the database (used in the main view of the frontend). |
+| GET | /blog/:id | Retrieves the markdown content of a project, selected by the user, stored in the database. |
+
+Protected Endpoints:
+| Method | Endpoint | Description |
+| :----- | :-------- | :---------------------------------------------------------------------------------------------------------------------- |
+| POST | / | Creates an entry in the database. |
+| POST | /sync | Updates the README.md content stored in the database (triggers GitHub Actions upon updating the README.md in the repo). |
+| PATCH | /:id | Updates a particular entry in the database. |
+| DELETE | /:id | Deletes a particular entry of the database. |
 
 ### Routing
 
@@ -131,9 +118,6 @@ The user selects a project from the main view and the id of the project is passe
 const getBlog = async () => {
     try {
         const response = await axios.get(`/blog/${repo}`, {
-            headers: {
-                Authorization: `Bearer ${import.meta.env.VITE_API_SECRET}`,
-            },
             signal: controller.signal,
         });
         setThumbnail(response.data.thumbnail);
@@ -147,7 +131,7 @@ const getBlog = async () => {
 
 ### Testing
 
-While in development process the API endpoints were tested using the REST.Client VSCode extension. Then more rigorous testing was employed using jest and supertest. Those tests can be found in the tests directory in the backend:
+During development the API endpoints were tested using the REST.Client VSCode extension. Then more rigorous testing was employed using jest and supertest. Those tests can be found in the tests directory in the backend:
 
 ```text
 root/
@@ -163,7 +147,7 @@ The UI went through several rounds of user feedback to pinpoint bugs and errors.
 
 #### Frontend
 
-Render.com's free tier is sufficient to host static sites with low latency. In the background they use AWS to host their client's content and Cloudflare to provide security. Content is served using their own global CDN that enables quick delivery of content. All of this is available on their free tier. However, the web-hosting capabilities on the free tier experience cold-starts and can take up to a minute to load.
+Render.com's free tier is sufficient to host static sites with low latency. In the background they use AWS to host their client's content and Cloudflare to provide security. Content is served using their own global CDN that enables quick delivery of content. All of this is available on their free tier. However, the web-hosting capabilities on the free tier experiences cold-starts and can take up to a minute to load.
 
 #### Backend
 
@@ -247,7 +231,7 @@ Initialise the environment variables in a .env file (make sure it is listed in .
 SERVER_HOST_PORT=#Delete if not containerising
 SERVER_CONTAINER_PORT=#Define port for server to listen on
 DATABASE_URL=#Database connection string
-API_SECRET=#API secret
+API_SECRET=#API secret (authenticates requests for protected endpoints)
 ```
 
 While in the backend directory run:
@@ -278,9 +262,8 @@ cd resume-frontend
 npm install
 ```
 
-Initialise the environment variables in a .env file (make sure it is listed in .gitignore):
+Initialise the environment variables in a .env file:
 
 ```text
 VITE_APP_SERVER_URL=#backend link
-VITE_API_SECRET=#API secret, make sure it is the same as API_SECRET stored in the backend directory
 ```

@@ -120,9 +120,9 @@ Protected Endpoints:
 | PATCH | /:id | Updates a particular entry in the database. |
 | DELETE | /:id | Deletes a particular entry of the database. |
 
-### Syncing README.md
+### CI/CD Pipeline
 
-A CI/CD pipeline that connects each project repository and the backend. A GitHub Actions workflow was initialised in each project, that upon commits to the README.md file, would send a /sync request to the backend and update the content in the database.
+There is a GitHub workflow that connects each project repository and the backend. Upon commits to the README.md file, the workflow will send a /sync request to the backend and update the content in the database.
 
 Additionally, both Render and Fly.io are set up to redeploy upon commits to GitHub.
 

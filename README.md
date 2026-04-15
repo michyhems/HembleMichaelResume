@@ -124,6 +124,8 @@ Protected Endpoints:
 
 A CI/CD pipeline that connects each project repository and the backend. A GitHub Actions workflow was initialised in each project, that upon commits to the README.md file, would send a /sync request to the backend and update the content in the database.
 
+Additionally, both Render and Fly.io are set up to redeploy upon commits to GitHub.
+
 ### Routing
 
 A feature of the frontend which switches between the main view (details about me and a list of projects) and a blog post about the projects (pulled from the README.md files of the project repos). The routing is implemented through react-router-dom.

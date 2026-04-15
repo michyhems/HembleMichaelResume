@@ -4,7 +4,7 @@ const Model = require("../models/project");
 const fetchRepo = require("../middleware/fetchRepo");
 const getEntry = require("../middleware/getEntry");
 const authenticate = require("../middleware/authenticate");
-const authenticateGitHub = require("../middleware/authenticateGitHub")
+const authenticateGitHub = require("../middleware/authenticateGitHub");
 
 //Get all
 router.get("/", async (req, res) => {
@@ -39,6 +39,7 @@ router.post("/", authenticate, fetchRepo, async (req, res) => {
     const body = req.body;
     const entry = new Model({
         title: body.title,
+        repo: body.repo,
         thumbnail: body.thumbnail,
         description: body.description,
         readmeHtml: req.html,
@@ -63,6 +64,9 @@ router.patch("/:id", authenticate, getEntry, async (req, res) => {
     }
     if (body.thumbnail !== null) {
         req.entry.thumbnail = body.thumbnail;
+    }
+    if (body.repo !== null) {
+        req.entry.repo = body.repo;
     }
     try {
         const newEntry = await req.entry.save();

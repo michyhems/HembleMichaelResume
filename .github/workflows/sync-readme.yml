@@ -1,0 +1,28 @@
+name: Update DB from README
+
+on:
+    push:
+        paths:
+            - "README.md"
+
+jobs:
+    update-db:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout repo
+              uses: actions/checkout@v4
+
+            - name: Read README
+              id: readme
+              run: |
+                  echo "CONTENT<<EOF" >> $GITHUB_ENV
+                  cat README.md >> $GITHUB_ENV
+                  echo "EOF" >> $GITHUB_ENV
+
+            - name: Send to backend
+              run: |
+                  curl -X POST ${{ secrets.API_URL }}/sync \
+                    -H "Content-Type: application/json" \
+                    -H "Authorization: ${{ secrets.API_KEY }}" \
+                    -d "$(jq -n --arg content "$CONTENT" '{content: $content}')"

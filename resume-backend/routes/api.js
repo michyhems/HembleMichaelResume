@@ -4,6 +4,7 @@ const Model = require("../models/project");
 const fetchRepo = require("../middleware/fetchRepo");
 const getEntry = require("../middleware/getEntry");
 const authenticate = require("../middleware/authenticate");
+const authenticateGitHub = require("../middleware/authenticateGitHub")
 
 //Get all
 router.get("/", async (req, res) => {
@@ -72,7 +73,7 @@ router.patch("/:id", authenticate, getEntry, async (req, res) => {
 });
 
 //Sync Readme with github
-router.post("/sync", authenticate, fetchRepo, async (req, res) => {
+router.post("/sync", authenticateGitHub, fetchRepo, async (req, res) => {
     const html = req.html;
     const repo = req.body.repo;
     try {

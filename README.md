@@ -27,7 +27,7 @@ This diagram details a client-to-server design pattern with two distinct startin
 
 This is quite standard for most resume sites. However, because the content of the blog posts (including this one) comes from the README.md file stored in the associated project's repository:
 
-- When a developer commits changes to the README.md of any project, it triggers GitHub Actions to send a request to the backend
+- When a developer commits changes to the README.md of any project, it triggers GitHub Actions to send a request to the backend.
 - The backend will then query the database and update the content.
 
 ## Implementation

@@ -183,6 +183,8 @@ Fly.io is a third party hosting service that can run containerised images. It ha
 
 I would like to reach a point (and a budget) that would allow me to take responsibility of more of the infrastructure that my projects run on. Hosting my projects on my own PC, managing security and scalability is a long term goal that I am always striving toward.
 
+Additionally, I would like to improve the responsiveness of the blog UI.
+
 ## Installation Guide
 
 Clone the repository:

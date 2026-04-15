@@ -82,7 +82,7 @@ router.post("/sync", authenticateGitHub, fetchRepo, async (req, res) => {
     const repo = req.body.repo;
     try {
         const project = await Model.findOneAndUpdate(
-            { title: repo },
+            { repo: repo },
             {
                 readmeHtml: html,
                 lastUpdated: new Date(),

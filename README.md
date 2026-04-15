@@ -10,7 +10,7 @@ I needed a way to present my projects and their documentation as well as present
 
 This is a full stack web application composed of a frontend, a backend server, a database and a GitHub Actions workflow. Through this I will have demonstrated skills in user-oriented design, backend development, containerisation, CI/CD pipelines via GitHub Actions and cloud deployment.
 
-[Live demo](https://hemblemichaelresume.onrender.com)
+[Live demo](https://hemblemichaelresume.onrender.com) | [GitHub Repository](https://github.com/michyhems/HembleMichaelResume)
 
 **Note:** The backend server was created using my own Bash Console App project found [here](https://github.com/michyhems/BashConsoleApp).
 

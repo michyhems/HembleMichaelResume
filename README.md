@@ -67,7 +67,7 @@ This is quite standard for most resume sites. However, because the content of th
 - Docker (containerisation)
 - Docker compose (manage container)
 - GitHub Actions (CI/CD)
-- Fly.io (hosting)
+- Fly.io (deployment)
 
 ### Security
 

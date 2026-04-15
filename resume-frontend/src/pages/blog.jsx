@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import axios from "./../../api/axios";
+import axios from "../api/axios";
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 
@@ -30,6 +30,17 @@ const Blog = () => {
         };
     }, []);
 
+    const descriptionList = () => {
+        return `
+            <ul class='blog-description'>
+                <li><span>Description: </span>${description[0]}</li>
+                <li><span>Tech stack: </span>${description[1]}</li>
+                <li><span>Testing: </span>${description[2]}</li>
+                <li><span>Skills: </span>${description[3]}</li>
+            </ul>
+            `;
+    };
+
     const blog = () => {
         const BlogStyle = styled.div`
             .blog-title-card .blog-title-card-image {
@@ -48,7 +59,9 @@ const Blog = () => {
         const head =
             "<div class='blog-title-card'><div class='blog-title-card-details'>";
         const tail = "</div><div class='blog-title-card-image'></div></div>";
-        setFinalContent(`${head + parts[0] + description + tail + parts[1]}`);
+        setFinalContent(
+            `${head + parts[0] + descriptionList() + tail + parts[1]}`,
+        );
     }, [content]);
 
     return (

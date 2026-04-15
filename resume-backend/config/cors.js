@@ -1,4 +1,7 @@
-const allowedOrigins = ["https://hemblemichaelresume.onrender.com"];
+const allowedOrigins = [
+    "https://hemblemichaelresume.onrender.com",
+    "https://resume-oi5f.onrender.com",
+];
 const corsOptions = {
     origin: (origin, callback) => {
         if (allowedOrigins.indexOf(origin) !== -1 || !origin) {

@@ -10,7 +10,7 @@ I needed a way to present my projects and their documentation as well as present
 
 This is a full stack web application composed of a frontend, a backend server, a database and a GitHub Actions workflow. Through this I will have demonstrated skills in user-oriented design, backend development, containerisation, CI/CD pipelines via GitHub Actions and cloud deployment.
 
-[Live demo](https://hemblemichaelresume-demo.onrender.com/)
+[Live demo](https://hemblemichaelresume.onrender.com)
 
 **Note:** The backend server was created using my own Bash Console App project found [here](https://github.com/michyhems/BashConsoleApp).
 
@@ -27,7 +27,8 @@ This diagram details a client-to-server design pattern with two distinct startin
 
 This is quite standard for most resume sites. However, because the content of the blog posts (including this one) comes from the README.md file stored in the associated project's repository:
 
-- When a developer commits changes to the README.md of any project, it triggers GitHub Actions to send a request to the backend which will then query the database and update the content.
+- When a developer commits changes to the README.md of any project, it triggers GitHub Actions to send a request to the backend
+- The backend will then query the database and update the content.
 
 ## Implementation
 

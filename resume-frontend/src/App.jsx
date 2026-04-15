@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Blog from "./pages/page-components/blog.jsx";
+import Blog from "./pages/blog.jsx";
 import Home from "./pages/home.jsx";
 
 function App() {

@@ -108,7 +108,7 @@ module.exports = authenticate;
 Public Endpoints:
 | Method | Endpoint | Description |
 | :----- | :-------- | :---------------------------------------------------------------------------------------------------------------------- |
-| GET | / | Retrieves all entries in the database. |
+| GET | / | Retrieves all of the entries in the database. |
 | GET | /titles | Retrieves the id, titles and thumbnails of all entries in the database (used in the main view of the frontend). |
 | GET | /blog/:id | Retrieves the markdown content of a project, selected by the user, stored in the database. |
 

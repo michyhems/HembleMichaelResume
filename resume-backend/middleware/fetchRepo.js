@@ -3,7 +3,7 @@ const marked = require("marked");
 
 async function fetchRepo(req, res, next) {
     const ghRes = await fetch(
-        `https://api.github.com/repos/michyhems/${req.body.repo}/README.md`,
+        `https://api.github.com/repos/michyhems/${req.body.repo}/readme`,
         {
             headers: {
                 Accept: "application/vnd.github.v3.raw",

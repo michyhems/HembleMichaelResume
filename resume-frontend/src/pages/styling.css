@@ -244,6 +244,11 @@ body {
     justify-content: space-evenly;
     position: relative;
 }
+
+.sidebar-container > * {
+    flex-shrink: 0;
+}
+
 .sidebar-container::after,
 .sidebar-container::before {
     content: "";
@@ -283,7 +288,6 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-shrink: 0;
 }
 
 .profile-picture h3 {
@@ -297,6 +301,7 @@ body {
     background-position: center top;
     background-size: cover;
     border-radius: 50%;
+    min-height: 100px;
 }
 
 .banner-container::before {
@@ -387,9 +392,9 @@ body {
 
 .institution {
     height: 50%;
-    background-color: red;
     border-radius: 10px;
     width: 90%;
+    min-height: 50px;
 }
 
 #university {
@@ -634,7 +639,12 @@ code {
         display: none;
     }
     .option {
-        display: block;
+        display: inline-block;
+        height: auto;
+    }
+    .sidebar-container {
+        height: auto;
+        min-height: 100vh;
     }
 }
 

@@ -50,7 +50,12 @@ const Blog = () => {
                 background-repeat: no-repeat;
             }
         `;
-        return <BlogStyle dangerouslySetInnerHTML={{ __html: finalContent }} />;
+        return (
+            <BlogStyle
+                className="blog"
+                dangerouslySetInnerHTML={{ __html: finalContent }}
+            />
+        );
     };
 
     useEffect(() => {

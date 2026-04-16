@@ -175,13 +175,15 @@ Initially, I hosted the backend on Render.com's free tier but the loading time w
 
 I set up a temporary stop gap by serving the database's content using a json file to keep the service available while I looked for a long term solution. This was a viable short-term solution as there was not a large amount of data.
 
-After cycling through several plans from hosting the service on my own machine to biting the bullet and paying for a higher quality service I decided to go for a middle ground.
+After cycling through several plans from hosting the service on my own machine to biting the bullet and paying for a higher quality service I decided to go for a middle ground. 
+
+I first looked at self-hosting and containerised my backend however, the cost of the hardware prohibited me from employing this strategy. I decided to got with a third party hosting service. 
 
 Fly.io is a third party hosting service that can run containerised images. It has flexible payment plans and is both reliable and affordable.
 
 ## Future Improvements
 
-I would like to reach a point (and a budget) that would allow me to take responsibility of more of the infrastructure that my projects run on. Hosting my projects on my own PC, managing security and scalability is a long term goal that I am always striving toward.
+I would like to reach a point (and a budget) that would allow me to take greater responsibility of the infrastructure that my projects run on. Hosting my projects on my own PC, managing security and scalability is a long term goal that I am always striving toward.
 
 Additionally, I would like to improve the responsiveness of the blog UI.
 

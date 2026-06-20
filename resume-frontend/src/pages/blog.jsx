@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import axios from "../api/axios";
 import { useState, useEffect } from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const Blog = () => {
     const { repo } = useParams();
@@ -71,7 +72,23 @@ const Blog = () => {
 
     return (
         <>
-            <div className="blog-container">{blog()}</div>
+            <div className="blog-container">
+                <Link to="/">
+                    <div className="returnArrow">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            height="24px"
+                            viewBox="0 -960 960 960"
+                            width="24px"
+                            fill="#e3e3e3"
+                        >
+                            <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z" />
+                        </svg>
+                        Return to home
+                    </div>
+                </Link>
+                {blog()}
+            </div>
         </>
     );
 };

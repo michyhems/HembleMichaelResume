@@ -683,3 +683,9 @@ code {
         font-size: 14px;
     }
 }
+
+.returnArrow {
+    color: white;
+    display: flex;
+    margin-top: 10px;
+}

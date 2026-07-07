@@ -1,5 +1,5 @@
 const Banner = () => {
-    const consolePrompt = "PS C:\\Hemble-Michael> ";
+    const consolePrompt = "> ";
     return (
         <div class="banner-container">
             <div className="console-path">

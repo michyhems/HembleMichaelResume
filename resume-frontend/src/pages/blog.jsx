@@ -69,11 +69,9 @@ const Blog = () => {
             `${head + parts[0] + descriptionList() + tail + parts[1]}`,
         );
     }, [content]);
-
-    return (
-        <>
-            <div className="blog-container">
-                <Link to="/">
+    const back_arrow = ()=>{
+        return(
+            <Link to="/">
                     <div className="returnArrow">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -87,6 +85,12 @@ const Blog = () => {
                         Return to home
                     </div>
                 </Link>
+        )
+    }
+    return (
+        <>
+            <div className="blog-container">
+                {back_arrow()}
                 {blog()}
             </div>
         </>

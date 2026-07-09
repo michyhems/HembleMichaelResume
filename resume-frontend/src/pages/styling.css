@@ -401,12 +401,25 @@ body {
     min-height: 50px;
 }
 
+.institution:hover {
+    cursor: pointer;
+}
+
 #university {
     background-image: url("./../assets/qut-8-logo.png");
     background-color: white;
     background-size: cover;
     background-position: center;
 }
+
+#forage {
+    background-image: url("./../assets/Navy_Wide_Logo@2x.png");
+    background-color: white;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 #high-school {
     background-image: url("./../assets/image.png");
     background-color: white;

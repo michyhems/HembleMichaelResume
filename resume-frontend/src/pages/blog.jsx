@@ -88,12 +88,14 @@ const Blog = () => {
         )
     }
     return (
-        <>
-            <div className="blog-container">
-                {back_arrow()}
-                {blog()}
-            </div>
-        </>
+      <>
+        <div className="blog-page">
+          <div className="blog-container">
+            {back_arrow()}
+            {blog()}
+          </div>
+        </div>
+      </>
     );
 };
 export default Blog;
